@@ -338,12 +338,12 @@ html, body {
   }
 
   /* Citation block wrapping */
-  pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow-x: auto;
-    max-width: 100%;
-    font-size: 0.75rem;
+  pre, pre code {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    font-size: 0.7rem !important;
   }
 
   /* Scale logos on mobile */

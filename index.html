@@ -311,6 +311,11 @@ body {
   margin: 4px 0;
 }
 
+/* ---- Mobile fixes ---- */
+html, body {
+  overflow-x: hidden;
+}
+
 @media screen and (max-width: 768px) {
   .baseline-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -320,6 +325,42 @@ body {
   }
   .motivation-box {
     padding: 1.5rem;
+  }
+
+  /* Stack result rows vertically */
+  .result-row .columns.is-mobile {
+    flex-wrap: wrap;
+  }
+  .result-row .columns.is-mobile > .column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Scale logos on mobile */
+  .hero-body img[alt="University of Tübingen"],
+  .hero-body img[alt="Imperial College London"],
+  .hero-body img[alt="KAUST"] {
+    height: 40px !important;
+  }
+
+  /* Shrink title on mobile */
+  .publication-title {
+    font-size: 1.5rem !important;
+  }
+
+  /* Prevent wide elements from causing overflow */
+  .container, .section, .hero-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  .rotate-wrapper {
+    max-width: 100%;
   }
 }
 
@@ -351,7 +392,7 @@ body {
             <span class="author-block" style="margin-left: 1rem;"><sup>3</sup>KAUST</span>
           </div>
 
-          <div style="margin-top: 1rem; display: flex; justify-content: center; align-items: center; gap: 30px;">
+          <div style="margin-top: 1rem; display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;">
             <img src="./static/images/logo_tubingen.png" alt="University of Tübingen" style="height: 70px;">
             <img src="./static/images/logo_imperial.png" alt="Imperial College London" style="height: 70px;">
             <img src="./static/images/logo_kaust.svg" alt="KAUST" style="height: 70px;">

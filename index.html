@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AHOY! Animatable Humans under Occlusion from YouTube Videos</title>
 
+  <script>
+    (function() {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
@@ -28,7 +35,7 @@
 /* index.css */
 body {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
 }
 
 .footer .icon-link {
@@ -52,7 +59,7 @@ body {
 
 .publication-title {
   font-family: 'Google Sans', sans-serif;
-  font-size: 3.5rem !important;
+  font-size: 2.5rem !important;
 }
 
 .publication-authors {
@@ -186,8 +193,8 @@ body {
 
 /* Intro text */
 .intro-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: 1.08rem;
+  line-height: 1.75;
   color: #444;
   max-width: 800px;
   margin: 0 auto;
@@ -238,8 +245,8 @@ body {
 
 /* Abstract */
 .abstract-text {
-  font-size: 1.15rem;
-  line-height: 1.85;
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 /* Section divider */
@@ -378,10 +385,128 @@ html, body {
 }
 
 
+
+/* ============ ECCV badge ============ */
+.venue-line { margin-top: 0.85rem; }
+.venue-badge {
+  display: inline-block;
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600; font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #2160c4;
+  background: rgba(50, 115, 220, 0.09);
+  border: 1px solid rgba(50, 115, 220, 0.28);
+  padding: 5px 15px; border-radius: 999px;
+}
+html[data-theme="dark"] .venue-badge { color: #8fb8ff; background: rgba(88,166,255,0.12); border-color: rgba(88,166,255,0.30); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .venue-badge { color: #8fb8ff; background: rgba(88,166,255,0.12); border-color: rgba(88,166,255,0.30); }
+}
+
+/* ============ Theme variables ============ */
+:root {
+  --page-bg: #f3f5f7; --card-bg: #ffffff; --card-border: #e8ecf1;
+  --card-shadow: 0 1px 2px rgba(16,24,40,0.05), 0 6px 18px rgba(16,24,40,0.07);
+  --text: #444; --heading: #1a1a1a; --muted: #888;
+  --accent: #3273dc; --pre-bg: #f6f8fa; --pre-text: #3a3f47;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --page-bg: #1b1c25; --card-bg: #262837; --card-border: #343649;
+    --card-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    --text: #dadbdf; --heading: #e8e8e8; --muted: #a6a7ad;
+    --accent: #58a6ff; --pre-bg: #1e1f29; --pre-text: #c8cad2;
+  }
+}
+html[data-theme="dark"] {
+  --page-bg: #1b1c25; --card-bg: #262837; --card-border: #343649;
+  --card-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  --text: #dadbdf; --heading: #e8e8e8; --muted: #a6a7ad;
+  --accent: #58a6ff; --pre-bg: #1e1f29; --pre-text: #c8cad2;
+}
+
+/* ============ Lifted cards (blocks with spacing) ============ */
+html, body { background: var(--page-bg) !important; }
+body { color: var(--text); transition: background .25s ease, color .25s ease; }
+.hero.is-light { background: transparent !important; }
+.section { padding: 1.4rem 1rem; }
+.hero-body { padding: 1.4rem 1rem; }
+.section > .container,
+.hero-body > .container {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 2.25rem 2.5rem;
+  transition: background .25s ease, border-color .25s ease;
+}
+
+/* ============ Text theming ============ */
+.title { color: var(--heading) !important; }
+.subtitle, .content { color: var(--text); }
+.abstract-text, .intro-text { color: var(--text) !important; }
+.video-card { background: var(--card-bg); }
+.publication-authors a { color: var(--accent) !important; }
+
+/* Dark-mode readability for inline gray text in the markup */
+html[data-theme="dark"] [style*="color: #999"],
+html[data-theme="dark"] [style*="color: #888"],
+html[data-theme="dark"] [style*="color: #666"],
+html[data-theme="dark"] [style*="color: #555"],
+html[data-theme="dark"] [style*="color: #444"],
+html[data-theme="dark"] [style*="color: #333"] { color: var(--muted) !important; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) [style*="color: #999"],
+  html:not([data-theme="light"]) [style*="color: #888"],
+  html:not([data-theme="light"]) [style*="color: #666"],
+  html:not([data-theme="light"]) [style*="color: #555"],
+  html:not([data-theme="light"]) [style*="color: #444"],
+  html:not([data-theme="light"]) [style*="color: #333"] { color: var(--muted) !important; }
+}
+
+/* ============ Citation block + copy button ============ */
+pre { background: var(--pre-bg) !important; color: var(--pre-text) !important; }
+pre code { background: transparent !important; color: var(--pre-text) !important; }
+.bibtex-wrap { position: relative; }
+.bib-copy {
+  position: absolute; top: 12px; right: 12px;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Google Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+  color: var(--accent); background: var(--card-bg);
+  border: 1px solid var(--card-border); border-radius: 8px;
+  padding: 5px 11px; cursor: pointer; transition: all .15s ease;
+}
+.bib-copy:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.bib-copy.copied { background: #2aa775; border-color: #2aa775; color: #fff; }
+
+/* ============ Theme toggle button ============ */
+#theme-toggle {
+  position: fixed; top: 16px; right: 16px; z-index: 100;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--card-border); background: var(--card-bg); color: var(--heading);
+  cursor: pointer; font-size: 1.05rem; box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+#theme-toggle:hover { transform: scale(1.08); }
+
+/* ============ Copy toast ============ */
+#copy-toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px);
+  background: #1a1a1a; color: #fff; padding: 10px 18px; border-radius: 999px;
+  font-family: 'Google Sans', sans-serif; font-size: 0.9rem;
+  opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease; z-index: 200;
+}
+#copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+html[data-theme="dark"] #copy-toast { background: #f1f1f1; color: #1a1a1a; }
+
+@media screen and (max-width: 768px) {
+  .section > .container, .hero-body > .container { padding: 1.5rem 1.1rem; }
+}
 </style>
 </head>
 
 <body>
+<button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
 
 <!-- ==================== HERO ==================== -->
 <section class="hero is-light">
@@ -390,6 +515,7 @@ html, body {
       <h1 class="title is-1 publication-title" style="margin-bottom: 0.5rem;">
         AHOY! Animatable Humans under Occlusion from YouTube Videos with Gaussian Splatting and Video Diffusion Priors
       </h1>
+      <div class="venue-line"><span class="venue-badge">ECCV 2026</span></div>
 
           <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
             <span class="author-block"><a href="https://miraymen.github.io">Aymen Mir</a><sup>1</sup>,</span>
@@ -704,11 +830,15 @@ html, body {
   <div class="container is-max-desktop content">
     <h2 class="title is-2 has-text-centered section-title">BibTeX</h2>
     <div class="section-divider"></div>
-    <pre><code>@inproceedings{mir2026ahoy,
+    <div class="bibtex-wrap">
+      <button class="bib-copy" id="bib-copy" type="button"><i class="far fa-copy"></i><span>Copy</span></button>
+      <pre><code id="bibtex-code">@inproceedings{mir2026ahoy,
   title     = {AHOY! Animatable Humans under Occlusion from YouTube Videos with Gaussian Splatting and Video Diffusion Priors},
   author    = {Mir, Aymen and Guler, Riza Alp and Tang, Xiangjun and Wonka, Peter and Pons-Moll, Gerard},
+  booktitle = {European Conference on Computer Vision (ECCV)},
   year      = {2026}
 }</code></pre>
+    </div>
   </div>
 </section>
 
@@ -792,5 +922,39 @@ subjects.forEach((name, idx) => {
 });
 </script>
 
+<div id="copy-toast">Copied BibTeX to clipboard!</div>
+<script>
+(function(){
+  // Dark / light theme toggle (3-state: auto / light / dark)
+  var btn = document.getElementById('theme-toggle');
+  if (btn) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    function eff(){ var t = document.documentElement.getAttribute('data-theme'); return t ? t : (mq.matches ? 'dark' : 'light'); }
+    function render(){ btn.innerHTML = '<i class="fas ' + (eff()==='dark' ? 'fa-sun' : 'fa-moon') + '"></i>'; }
+    btn.addEventListener('click', function(){
+      var next = eff()==='dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      render();
+    });
+    if (mq.addEventListener) mq.addEventListener('change', render);
+    render();
+  }
+  // Copy BibTeX
+  var cbtn = document.getElementById('bib-copy');
+  var code = document.getElementById('bibtex-code');
+  if (cbtn && code) {
+    cbtn.addEventListener('click', function(){
+      navigator.clipboard.writeText(code.innerText).then(function(){
+        var toast = document.getElementById('copy-toast');
+        if (toast){ toast.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(function(){ toast.classList.remove('show'); }, 2000); }
+        var label = cbtn.querySelector('span');
+        cbtn.classList.add('copied'); if (label) label.textContent = 'Copied!';
+        setTimeout(function(){ cbtn.classList.remove('copied'); if (label) label.textContent = 'Copy'; }, 2000);
+      });
+    });
+  }
+})();
+</script>
 </body>
 </html>

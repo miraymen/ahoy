@@ -505,6 +505,12 @@ html[data-theme="dark"] #copy-toast { background: #f1f1f1; color: #1a1a1a; }
 @media screen and (max-width: 768px) {
   .section > .container, .hero-body > .container { padding: 1.5rem 1.1rem; }
 }
+
+/* Institute logos: clean white in dark mode (transparent sources) */
+html[data-theme="dark"] .inst-logo { filter: brightness(0) invert(1); opacity: 0.9; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .inst-logo { filter: brightness(0) invert(1); opacity: 0.9; }
+}
 </style>
 </head>
 
@@ -535,9 +541,9 @@ html[data-theme="dark"] #copy-toast { background: #f1f1f1; color: #1a1a1a; }
           </div>
 
           <div style="margin-top: 1rem; display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;">
-            <img src="./static/images/logo_tubingen.png" alt="University of Tübingen" style="height: 70px;">
-            <img src="./static/images/logo_imperial.png" alt="Imperial College London" style="height: 70px;">
-            <img src="./static/images/logo_kaust.svg" alt="KAUST" style="height: 70px;">
+            <img class="inst-logo" src="./static/images/logo_tubingen.png" alt="University of Tübingen" style="height: 70px;">
+            <img class="inst-logo" src="./static/images/logo_imperial.png" alt="Imperial College London" style="height: 70px;">
+            <img class="inst-logo" src="./static/images/logo_kaust.svg" alt="KAUST" style="height: 70px;">
           </div>
 
           <div style="margin-top: 1.2rem;">

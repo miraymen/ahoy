@@ -573,6 +573,16 @@ html[data-theme="dark"] .inst-logo { filter: brightness(0) invert(1); opacity: 0
             </a>
           </div>
 
+          <!-- Teaser: input videos -> canonical avatars -> animated avatars -->
+          <div style="margin-top: 1.6rem;">
+            <video autoplay muted loop playsinline preload="auto" style="width: 100%; display: block; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+              <source src="./static/videos/intro/teaser_carousel.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-centered" style="color: #888; font-size: 1.0rem; margin-top: 0.6rem;">
+              Occluded YouTube input (top), reconstructed canonical avatars (middle), and animated avatars (bottom).
+            </p>
+          </div>
+
     </div>
   </div>
 </section>
@@ -589,6 +599,17 @@ html[data-theme="dark"] .inst-logo { filter: brightness(0) invert(1); opacity: 0
       <p>
         We address these challenges with four contributions: (i)&nbsp;a hallucination-as-supervision pipeline that uses identity-finetuned diffusion models to generate dense supervision for previously unobserved body regions; (ii)&nbsp;a two-stage canonical-to-pose-dependent architecture that bootstraps from sparse observations to full pose-dependent Gaussian maps; (iii)&nbsp;a map-pose/LBS-pose decoupling that absorbs multi-view inconsistencies from the generated data; (iv)&nbsp;a head/body split supervision strategy that preserves facial identity. We evaluate on YouTube videos and on multi-view capture data with significant occlusion and demonstrate state-of-the-art reconstruction quality. We also demonstrate that the resulting avatars are robust enough to be animated with novel poses and composited into 3DGS scenes captured using cell-phone video.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VIDEO ==================== -->
+<section class="section" style="padding-top: 1rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 has-text-centered section-title">Video</h2>
+    <div class="section-divider"></div>
+    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+      <iframe src="https://www.youtube.com/embed/qmBYDSxDZ40?rel=0" title="AHOY video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 </section>
